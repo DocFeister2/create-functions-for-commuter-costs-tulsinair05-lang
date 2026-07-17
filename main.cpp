@@ -17,20 +17,23 @@ double toCommutes(double gasDollars) {
   gasGallons = gasDollars / DOLLARS_PER_GALLON;
   gasMiles = gasGallons * MILES_PER_GALLON;
 
-  numCommutes = gasMiles; // TODO: That math is not right! Something is missing here...
+  numCommutes = gasMiles / MILES_PER_COMMUTE; // Corrected
 
   return numCommutes;
 }
 
-// TODO!
-// Converts number of commutes into gas cost
-/*
+ // Converts number of commutes into gas cost
 double toDollars(double commutes) {
-  ....
+  // Calculate total amount of miles driven
+  double totalMiles = commutes * MILES_PER_COMMUTE;
+  // Convert miles into needed gallons of gas
+  double totalGallons = totalMiles / MILES_PER_GALLON;
+  // Calculate total cost of gas
+  double totalCost = totalGallons * DOLLARS_PER_GALLON;
+
   return totalCost;
 }
-*/
-
+ 
 int main() {
 
   cout << "$20 will buy you: " << toCommutes(20) << " commutes." << endl;
